@@ -1,3 +1,6 @@
+import mongoose from "mongoose";
 import app from "../src/app.js";
 
-export default app;
+await mongoose.connection.asPromise();
+await mongoose.connection.collection("users").deleteMany({});
+await mongoose.connection.collection("tasks").deleteMany({});
